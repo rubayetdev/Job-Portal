@@ -15,7 +15,7 @@
             <li><a href="#service">Services</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="login">Logout</a></li>
-            <li><a href="registration">SingUp</a></li>
+            <li><label>{{session("name")}}</label></li>
 
         </ul>
     </nav>
@@ -23,7 +23,7 @@
 
 <main>
     <section class="hero">
-        <h1>Welcome to ChakriKhojo.com</h1>
+        <h1>Welcome <label>{{session("User")}}</label> to ChakriKhojo.com</h1>
         <p>Chakri Khojo Chakor Sajo.</p>
         <a href="#" class="btn">Learn More...</a>
     </section>

@@ -31,14 +31,20 @@ class Login extends Controller
         $user = DB::table('userdetails')->where('User_mail', $request->input('email'))->first();
         if ($user) {
             // Password matches
-
-            return Redirect::to('dashboard');
+            if (session()->isStarted()) {
+                $data = $request->session()->put('name', $user->User_mail);
+                $Data2 = $request->session()->put('User', $user->User_name);
+                return redirect('dashboard');
+            }
         } else {
             // Password doesn't match
             echo '<h1>Failed</h1>';
         }
+
     }
 
+    function readData(Request $request)
+    {
 
-
+    }
 }
