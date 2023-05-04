@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+nav li{
+    float: right;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+
+    background-size: cover;
+    background-position: center;
+    color: black;
+    padding: 100px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.features {
+    background-color: #eee;
+    padding: 50px;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.features ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.features li {
+    flex-basis: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.features li i {
+    color: #333;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.services {
+    padding: 50px;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.service {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.service img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.service h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.service p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .hero {
+        padding: 50px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+    }
+
+    .features {
+        padding: 30px;
+    }
+
+    .features h2 {
+        font-size: medium;
+    }
+
+    .features li {
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+
+    .features li i {
+        margin-right: 5px;
+    }
+
+    .services {
+        padding: 30px;
+    }
+
+    .services h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .service {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .service img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .service h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .service p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        padding: 10px;
+        margin-top: 30px;
+    }
+}
