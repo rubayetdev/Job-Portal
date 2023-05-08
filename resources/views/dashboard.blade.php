@@ -23,7 +23,7 @@
 
 <main>
     <section class="hero">
-        <h1>Welcome <label>{{session("User")}}</label> to ChakriKhojo.com</h1>
+        <h1>Welcome <label class="test">{{session("User")}}</label> to ChakriKhojo.com</h1>
         <p>Chakri Khojo Chakor Sajo.</p>
         <a href="#" class="btn">Learn More...</a>
     </section>
@@ -61,5 +61,15 @@
 <footer>
     <p>&copy; 2023 ChakriKhojo.com</p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    var type =new Typed(".test",{
+        strings : ["{{session("User")}}"],
+        loop : true,
+        typeSpeed : 100,
+        backSpeed : 80,
+        backDelay : 1500
+    })
+</script>
 </body>
 </html>
