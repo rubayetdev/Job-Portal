@@ -9,6 +9,8 @@
 </head>
 
 <body>
+  <form action="/readdata" method="post">
+    @csrf
   <div class="container">
     <div class="profile">
       <img src="profile.jpg" alt="Profile Picture">
@@ -18,16 +20,13 @@
 
     <div class="contact">
       <h2>Contact</h2>
-      <p>Email: {{session("name")}}</p>
-      
-      
-      @foreach ($dataread as $row)
-    <p>{{ $row['User_Phone'] }}</p>
-    <p>{{ $row['User_Address'] }}</p>
-@endforeach
+      <p>Email: {{ session('name') }}</p>
+@if ($dataread)
+    <p>Phone: {{ $dataread->User_Phone }}</p>
+    <p>Address: {{ $dataread->User_Address }}</p>
+@endif
 
-      
-      
+  
     </div>
 
     <div class="skills">
@@ -48,6 +47,8 @@
       </ul>
     </div>
   </div>
+  </form>
+  
 </body>
 
 </html>

@@ -45,9 +45,14 @@ class Login extends Controller
     }
 
     function readData(Request $request)
-    {
-        $email = $request->input('email');
-        $dataread = DB::where('User_mail', $email)->get(['User_Phone', 'User_Address']);
-        return view('resume', compact('dataread'));
-    }
+{
+    $name = $request->input('mail');
+    $dataread = DB::table('userdetails')->first(['User_Phone', 'User_Address']);
+
+    
+        return view('resume', ['User_mail'=> $name],$dataread);
+    
+
+
+}
 }

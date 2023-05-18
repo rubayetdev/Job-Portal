@@ -28,5 +28,5 @@ Route::get('/resume', function () {
     return view('resume');
 })->name('resume');
 Route::get('/resume', [Login::class, 'readData']);
-
+Route::post('/readdata', [Login::class, 'readData']);
 
