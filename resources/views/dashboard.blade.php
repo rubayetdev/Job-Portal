@@ -15,15 +15,14 @@
             <li><a href="#service">Services</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="login">Logout</a></li>
-            <li><label>{{session("name")}}</label></li>
-
+            <li><a href="resume">{{session("name")}}</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
     <section class="hero">
-        <h1>Welcome <label class="test">{{session("User")}}</label> to ChakriKhojo.com</h1>
+        <h1>Welcome <label class="test">{{session("User")}}</label></h1> <h1><span>to ChakriKhojo.com</span> </h1>
         <p>Chakri Khojo Chakor Sajo.</p>
         <a href="#" class="btn">Learn More...</a>
     </section>
@@ -67,7 +66,7 @@
         strings : ["{{session("User")}}"],
         loop : true,
         typeSpeed : 100,
-        backSpeed : 80,
+        backSpeed : 150,
         backDelay : 1500
     })
 </script>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 
+
 class Login extends Controller
 {
 
@@ -45,6 +46,8 @@ class Login extends Controller
 
     function readData(Request $request)
     {
-
+        $email = $request->input('email');
+        $dataread = DB::where('User_mail', $email)->get(['User_Phone', 'User_Address']);
+        return view('resume', compact('dataread'));
     }
 }

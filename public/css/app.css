@@ -44,12 +44,15 @@ nav ul li a {
 }
 
 .hero {
-
     background-size: cover;
     background-position: center;
     color: black;
     padding: 100px;
     text-align: center;
+}
+
+.hero img{
+    
 }
 
 .hero h1 {

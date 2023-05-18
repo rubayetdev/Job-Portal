@@ -22,6 +22,7 @@
 
 <main>
     <section class="hero">
+        
         <h1>Welcome to ChakriKhojo.com</h1>
         <p>Chakri Khojo Chakor Sajo.</p>
         <a href="#" class="btn">Learn More...</a>
