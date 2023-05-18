@@ -9,22 +9,24 @@
 </head>
 
 <body>
-  <form action="/readdata" method="post">
-    @csrf
+  
   <div class="container">
     <div class="profile">
       <img src="profile.jpg" alt="Profile Picture">
-      <h1>{{session("User")}}</h1>
+      <!-- <h1>{{session("User")}}</h1> -->
+      <!-- {{dd($getData)}} -->
+
+      <h1>{{ $getData->User_name }}</h1>
       <h3>Front-end Developer</h3>
     </div>
 
     <div class="contact">
       <h2>Contact</h2>
-      <p>Email: {{ session('name') }}</p>
-@if ($dataread)
-    <p>Phone: {{ $dataread->User_Phone }}</p>
-    <p>Address: {{ $dataread->User_Address }}</p>
-@endif
+
+      <p>Email: {{ $getData->User_mail }}</p>
+    <p>Phone: {{ $getData->User_Phone }}</p>
+    <p>Address: {{ $getData->User_Address }}</p>
+
 
   
     </div>
@@ -47,7 +49,7 @@
       </ul>
     </div>
   </div>
-  </form>
+
   
 </body>
 

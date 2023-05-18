@@ -19,14 +19,16 @@ Route::get('/registration', function () {
 });
 Route::post('registration-form',[Login::class,'Insert'])->name('registration-form');
 Route::post('login-form', [Login::class, 'login'])->name('login-form');
+Route::get('/dashboard', [Login::class, 'dashboard'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
-Route::get('/resume', function () {
-    return view('resume');
-})->name('resume');
-Route::get('/resume', [Login::class, 'readData']);
+/*Route::get('/resume', function () {
+  return view('resume');
+})->name('resume');*/
+Route::get('/resume/{email}', [Login::class, 'readDataGet'])->name('resume');
+// Route::get('/resume', [Login::class, 'readData'])->name('resume-get');
 Route::post('/readdata', [Login::class, 'readData']);
 

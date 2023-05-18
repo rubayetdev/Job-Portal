@@ -31,11 +31,13 @@ class Login extends Controller
     {
         $user = DB::table('userdetails')->where('User_mail', $request->input('email'))->first();
         if ($user) {
+            // dd();
             // Password matches
             if (session()->isStarted()) {
-                $data = $request->session()->put('name', $user->User_mail);
-                $Data2 = $request->session()->put('User', $user->User_name);
-                return redirect('dashboard');
+                // $data = $request->session()->put('name', $user->User_mail);
+                // $Data2 = $request->session()->put('User', $user->User_name);
+                // return view('dashboard',compact('data','Data2'));
+                return redirect('/dashborad');
             }
         } else {
             // Password doesn't match
@@ -44,15 +46,25 @@ class Login extends Controller
 
     }
 
-    function readData(Request $request)
-{
-    $name = $request->input('mail');
-    $dataread = DB::table('userdetails')->first(['User_Phone', 'User_Address']);
-
+    public function readDataGet( $eamil){
+    $getData = DB::table('userdetails')->where('User_mail',$eamil)->get();
     
-        return view('resume', ['User_mail'=> $name],$dataread);
+    return view('resume',compact('getData'));
+
+    }
+
+    // function readData(){
     
+    // return view('resume');
+    
+    // }
 
+    public function dashboard(){
+        $user = DB::table('userdetails')->get()->first();
+            
+                
+                
+        return view('dashboard',compact('user'));
+    }
 
-}
 }
