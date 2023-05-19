@@ -24,7 +24,7 @@
 
       <p>Email: {{session("name")}}</p>
     <p>Phone: {{session("phone")}}</p>
-    <p>Address: </p>
+    <p>Address: {{session("address")}} </p>
 
 
   
