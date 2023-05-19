@@ -34,10 +34,13 @@ class Login extends Controller
             // dd();
             // Password matches
             if (session()->isStarted()) {
-                // $data = $request->session()->put('name', $user->User_mail);
-                // $Data2 = $request->session()->put('User', $user->User_name);
-                // return view('dashboard',compact('data','Data2'));
-                return redirect('/dashborad');
+                $data = $request->session()->put('name', $user->User_mail);
+                $Data2 = $request->session()->put('User', $user->User_name);
+                $Data3 = $request->session()->put('phone', $user->User_Phone);
+                $Data4 = $request->session()->put('address', $user->User_Address);
+                return view('dashboard');
+                //return redirect('/dashboard');
+                //echo '<h1>Success</h1>';
             }
         } else {
             // Password doesn't match
@@ -46,24 +49,21 @@ class Login extends Controller
 
     }
 
-    public function readDataGet( $eamil){
-    $getData = DB::table('userdetails')->where('User_mail',$eamil)->get();
+    // public function readDataGet( $eamil){
+    // $getData = DB::table('userdetails')->where('User_mail',$eamil)->get();
     
-    return view('resume',compact('getData'));
+    // return view('resume',compact('getData'));
 
-    }
-
-    // function readData(){
-    
-    // return view('resume');
-    
     // }
 
+    function readData(){
+    
+    return view('resume');
+    
+    }
+
     public function dashboard(){
-        $user = DB::table('userdetails')->get()->first();
-            
-                
-                
+        $user = DB::table('userdetails')->get()->first();      
         return view('dashboard',compact('user'));
     }
 

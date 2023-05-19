@@ -15,15 +15,15 @@
             <li><a href="#service">Services</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="login">Logout</a></li>
-            <li><a href="{{route('resume',$user->User_mail)}}">{{$user->User_mail}}</a></li>
-           <!-- {{dd($user)}} -->
+            <li><a href="resume">{{session("User")}}</a></li>
+           
         </ul>
     </nav>
 </header>
 
 <main>
     <section class="hero">
-        <h1>Welcome <label class="test">{{session("User")}}</label></h1> <h1><span>to ChakriKhojo.com</span> </h1>
+        <h1>Welcome <label class="test"></label></h1> <h1><span>to ChakriKhojo.com</span> </h1>
         <p>Chakri Khojo Chakor Sajo.</p>
         <a href="#" class="btn">Learn More...</a>
     </section>
@@ -64,7 +64,7 @@
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
     var type =new Typed(".test",{
-        // strings : ["{{session("User")}}"],
+         strings : ["{{session("User")}}"],
         loop : true,
         typeSpeed : 100,
         backSpeed : 150,

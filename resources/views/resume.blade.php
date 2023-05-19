@@ -14,18 +14,17 @@
     <div class="profile">
       <img src="profile.jpg" alt="Profile Picture">
       <!-- <h1>{{session("User")}}</h1> -->
-      <!-- {{dd($getData)}} -->
-
-      <h1>{{ $getData->User_name }}</h1>
+      
+      <h1>{{session("User")}}</h1>
       <h3>Front-end Developer</h3>
     </div>
 
     <div class="contact">
       <h2>Contact</h2>
 
-      <p>Email: {{ $getData->User_mail }}</p>
-    <p>Phone: {{ $getData->User_Phone }}</p>
-    <p>Address: {{ $getData->User_Address }}</p>
+      <p>Email: {{session("name")}}</p>
+    <p>Phone: {{session("phone")}}</p>
+    <p>Address: </p>
 
 
   
