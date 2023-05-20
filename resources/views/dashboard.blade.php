@@ -31,7 +31,7 @@
     <section class="features">
         <h2>Features</h2>
         <ul>
-            <li><i class="fas fa-check-circle"></i>Find Jobs</li>
+            <li><i class="fa-solid fa-file fa-beat"></i>Find Jobs</li>
             <li><i class="fas fa-check-circle"></i>Company Category</li>
             <li><i class="fas fa-check-circle"></i>Job Circular</li>
             <li><i class="fas fa-check-circle"></i>Live Chat</li>
@@ -71,5 +71,7 @@
         backDelay : 1500
     })
 </script>
+
+
 </body>
 </html>

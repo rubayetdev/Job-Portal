@@ -47,6 +47,10 @@
     transition: background-color 0.3s ease;
 }
 
+.form-group i{
+    margin-right: 10px;
+}
+
 .form-group button[type="submit"]:hover {
     background-color: #357ae8;
 }

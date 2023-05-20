@@ -2,6 +2,8 @@
 <head>
     <title>Registration Form</title>
     <link rel="stylesheet" href="{{asset('css/registration.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 <body>
 <form class="registration-form" method="post" action="{{route('registration-form')}}">
@@ -9,7 +11,9 @@
     @csrf
     <h2>Register</h2>
     <div class="form-group">
-        <label for="name">Name:</label>
+        <label for="name">
+            <i class="far fa-user"></i>Name:
+        </label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
     </div>
     <div class="form-group">

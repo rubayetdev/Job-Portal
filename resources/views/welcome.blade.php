@@ -4,11 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chakri Khojo</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
 </head>
 <body>
 <header>
     <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fa-sharp fa-light fa-bars fa-beat-fade"></i>
+        </label>
         <ul>
             <li><a href="home">Home</a></li>
             <li><a href="#">About</a></li>
@@ -32,9 +38,9 @@
         <h2>Features</h2>
         <ul>
             <li><i class="fas fa-check-circle"></i>Find Jobs</li>
-            <li><i class="fas fa-check-circle"></i>Company Category</li>
-            <li><i class="fas fa-check-circle"></i>Job Circular</li>
-            <li><i class="fas fa-check-circle"></i>Live Chat</li>
+            <li><i class="fas fa-building"></i>Company Category</li>
+            <li><i class="fas fa-file"></i>Job Circular</li>
+            <li><i class="fas fa-comment"></i>Live Chat</li>
         </ul>
     </section>
 
@@ -61,5 +67,7 @@
 <footer>
     <p>&copy; 2023 ChakriKhojo.com</p>
 </footer>
+
+
 </body>
 </html>

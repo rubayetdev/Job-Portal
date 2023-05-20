@@ -20,11 +20,25 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 nav ul {
     display: flex;
     list-style: none;
+    float: right;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
 }
 
 nav ul li {
@@ -159,7 +173,7 @@ footer {
     font-family: "Times New Roman";
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 858px) {
     header {
         padding: 10px;
     }
@@ -246,6 +260,11 @@ footer {
     footer {
         padding: 10px;
         margin-top: 30px;
+    }
+
+    .checkbtn{
+        display: block;
+        
     }
 
 }
