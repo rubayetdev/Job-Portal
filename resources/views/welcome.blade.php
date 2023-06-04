@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chakri Khojo</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+       <script src="https://kit.fontawesome.com/a87236255f.js" crossorigin="anonymous"></script>
 
 
 </head>
@@ -20,8 +20,21 @@
             <li><a href="#">About</a></li>
             <li><a href="#service">Services</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="login">Login</a></li>
-            <li><a href="registration">SingUp</a></li>
+            
+            <li class="dropdown">
+            <a href="#" class="dropbtn">Login</a>
+                <div class="dropdown-content">
+                    <a href="login">Personal</a>
+                    <a href="companylogin">Business</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Registration</a>
+                <div class="dropdown-content">
+                    <a href="registration">Personal</a>
+                    <a href="companyres">Business</a>
+                </div>
+            </li>
         </ul>
     </nav>
 </header>
@@ -37,10 +50,11 @@
     <section class="features">
         <h2>Features</h2>
         <ul>
-            <li><i class="fas fa-check-circle"></i>Find Jobs</li>
-            <li><i class="fas fa-building"></i>Company Category</li>
-            <li><i class="fas fa-file"></i>Job Circular</li>
-            <li><i class="fas fa-comment"></i>Live Chat</li>
+            <li><i class="fa-solid fa-person-running"></i>Find Jobs</li>
+            <li><i class="fa-solid fa-building-user"></i>Company Category</li>
+            <li><i class="fas fa-file-check"></i>Job Circular</li>
+            <li><i class="fa-solid fa-user-headset"></i>Live Chat</li>
+
         </ul>
     </section>
 
@@ -68,6 +82,6 @@
     <p>&copy; 2023 ChakriKhojo.com</p>
 </footer>
 
-
+<script src="https://kit.fontawesome.com/a87236255f.js" crossorigin="anonymous"></script>
 </body>
 </html>

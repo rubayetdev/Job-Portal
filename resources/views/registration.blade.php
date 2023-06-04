@@ -2,44 +2,57 @@
 <head>
     <title>Registration Form</title>
     <link rel="stylesheet" href="{{asset('css/registration.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
 
 </head>
 <body>
 <form class="registration-form" method="post" action="{{route('registration-form')}}">
 
     @csrf
-    <h2>Register</h2>
-    <div class="form-group">
-        <label for="name">
-            <i class="far fa-user"></i>Name:
-        </label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <div class="wrapper">
+    <div class="title">
+      User Registration Form
     </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <div class="form">
+       <div class="inputfield">
+          <label>Full Name</label>
+          <input type="text" class="input" name="name" required>
+       </div>  
+       
+       <div class="inputfield">
+          <label>Email</label>
+          <input type="email" class="input" id="email" name="email" required>
+       </div>  
+      <div class="inputfield">
+          <label>Password</label>
+          <input type="password" class="input" id="password" name="password" required>
+       </div> 
+        
+        <div class="inputfield">
+          <label>Confirm Password</label>
+          <input type="password" class="input"id="confirm-password" name="confirm-password" required>
+       </div> 
+      <div class="inputfield">
+          <label>Phone Number</label>
+          <input type="tel" class="input" id="phone" name="phone" required>
+       </div> 
+      <div class="inputfield">
+          <label>Address</label>
+          <textarea class="textarea" name="address" id="address" required></textarea>
+       </div> 
+      <div class="inputfield terms">
+          <label class="check">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <p>Agreed to terms and conditions</p>
+       </div> 
+      <div class="inputfield">
+        <input type="submit" value="Register" class="btn">
+      </div>
     </div>
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-    </div>
-    <div class="form-group">
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
-    </div>
-    <div class="form-group">
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-    </div>
-    <div class="form-group">
-        <label for="address">Address:</label>
-        <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
-    </div>
-    <div class="form-group">
-        <button type="submit">Register</button>
-    </div>
-</form>
-
+</div>
+    </form>
+<script src="https://kit.fontawesome.com/a87236255f.js" crossorigin="anonymous"></script>
 </body>
 </html>

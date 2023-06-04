@@ -14,7 +14,7 @@
             <li><a href="#">About</a></li>
             <li><a href="#service">Services</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="login">Logout</a></li>
+            <li><a href="welcome">Logout</a></li>
             <li><a href="resume">{{session("User")}}</a></li>
            
         </ul>
@@ -64,7 +64,7 @@
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
     var type =new Typed(".test",{
-         strings : ["{{session("User")}}"],
+         strings : ["{{session('User')}}"],
         loop : true,
         typeSpeed : 100,
         backSpeed : 150,

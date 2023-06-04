@@ -14,12 +14,21 @@ Route::get('/home', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/companylogin', function () {
+    return view('companylogin');
+});
+Route::get('/companyres', function () {
+    return view('companyres');
+});
+
 Route::get('/registration', function () {
     return view('registration');
 });
 Route::post('registration-form',[Login::class,'Insert'])->name('registration-form');
 
 Route::post('login-form', [Login::class, 'login'])->name('login-form');
+Route::post('comlogin', [Login::class, 'company_login'])->name('comlogin');
 // Route::get('/dashboard', [Login::class, 'dashboard'])->name('dashboard');
 
  Route::get('/dashboard', function () {
@@ -34,3 +43,4 @@ Route::get('/resume', function () {
 // Route::get('/resume', [Login::class, 'readData'])->name('resume-get');
 Route::post('/readdata', [Login::class, 'readData']);
 */
+Route::post('business-registration',[Login::class,'company_registration'])->name('business-registration');

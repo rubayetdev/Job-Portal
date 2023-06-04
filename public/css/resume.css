@@ -1,84 +1,219 @@
+.dropdown {
+  position: relative;
+  display: inline;
+}
+
+.dropbtn {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.dropdown-content .input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dropdown-content .input label {
+  margin-right: 10px;
+  min-width: 100px;
+}
+
+.dropdown-content .input input,
+.dropdown-content .input select {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown-content .input select:focus,
+.dropdown-content .input input:focus {
+  outline: none;
+  border-color: #8c8c8c;
+  box-shadow: 0 0 5px #8c8c8c;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+/**Typeo CSS Start**/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1,
-  h2,
-  h3,
-  p {
-    margin: 0;
-  }
-  
-  .profile {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .profile img {
-    width: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .contact {
-    margin-bottom: 20px;
-  }
-  
-  .contact h2 {
-    margin-bottom: 10px;
-  }
-  
-  .contact p {
-    margin-bottom: 5px;
-  }
-  
-  .skills {
-    margin-bottom: 20px;
-  }
-  
-  .skills h2 {
-    margin-bottom: 10px;
-  }
-  
-  .skills ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .skills li {
-    margin-bottom: 5px;
-  }
-  
-  .experience {
-    margin-bottom: 20px;
-  }
-  
-  .experience h2 {
-    margin-bottom: 10px;
-  }
-  
-  .experience ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .experience li {
-    margin-bottom: 5px;
-  }
-  
-  @media (max-width: 600px) {
-    .container {
-      padding: 10px;
-    }
-    .profile img {
-      width: 100px;
-    }
-  }
+	font-family: "Poppins", sans-serif;
+	color: #444;
+	box-sizing: border-box;
+	margin: 0px;
+}
+
+.container {
+	max-width: 1200px;
+	width: 100%;
+	padding: 0px 15px;
+	margin: auto;
+}
+
+/**Typeo CSS End**/
+.faq-item {
+	width: 100%;
+	margin: 7px 0px;
+}
+
+.faq-item .faq-label {
+	position: relative;
+	width: 100%;
+	background-color: #ebebeb;
+	padding: 14px 50px 12px 20px;
+	cursor: pointer;
+	font-size: 18px;
+	color: #000;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+.faq-item .faq-label i {
+	width: 46px;
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background-color: #000;
+}
+
+.faq-item .faq-label i:before {
+	content: '';
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	width: 20px;
+	height: 2px;
+	background-color: #fff;
+}
+
+.faq-item .faq-label i:after {
+	content: '';
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	width: 2px;
+	height: 20px;
+	background-color: #fff;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+}
+
+.faq-item .faq-item-show .faq-label i:after {
+	opacity: 0;
+}
+
+.faq-cont {
+	border: #ebebeb 1px solid;
+	background-color: #fff;
+	transition: 0.3s all;
+	overflow: hidden;
+	padding: 0 20px;
+	height: 0px;
+}
+
+.faq-item .faq-item-show+.faq-cont {
+	display: block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	overflow: auto;
+	height: auto;
+	width: 50%;
+}
+
+.faq-cont p {
+	margin: 0px 0 20px 0;
+}
+
+.faq-cont p:last-child {
+	margin-bottom: 0px;
+}
+
+@media(max-width:767px) {
+	.faq-item .faq-label {
+		padding: 10px 50px 8px 15px;
+		cursor: pointer;
+		font-size: 16px;
+		line-height: 1.2;
+	}
+
+	.faq-cont {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+}
+
+
+
+
+.container h2 {
+    /* height: 100px; */
+    background-color: gray;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+button.btn.btn-primary {
+    padding: 7px 26px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
