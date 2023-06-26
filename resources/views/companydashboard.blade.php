@@ -4,8 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chakri Khojo</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <script src="//code.tidio.co/2l8awmiopxub2rsj7vuajrnkxy2xnqln.js" async></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+       <script src="https://kit.fontawesome.com/a87236255f.js" crossorigin="anonymous"></script>
+       <script src="//code.tidio.co/2l8awmiopxub2rsj7vuajrnkxy2xnqln.js" async></script>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,26 +15,32 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <header>
     <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fa-sharp fa-light fa-bars fa-beat-fade"></i>
+        </label>
         <ul>
-            <li><a href="home">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#service">Services</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="jobcircular">Job Circular</a></li>
+            <li><a href="jobpost">Job Post</a></li>
+            <li><a href="viewcv">All CV</a></li>
             <li><a href="welcome">Logout</a></li>
-            <li><a href="resume">{{session("User")}}</a></li>
-           
+            <li>{{ session('mails') }}</li>
         </ul>
     </nav>
 </header>
 
 <main>
     <section class="hero">
-        <h1>Welcome <label class="test"></label></h1> <h1><span>to ChakriKhojo.com</span> </h1>
+        
+    <h1>Welcome {{ session("names") }} to ChakriKhojo.com</h1>
         <p>Chakri Khojo Chakor Sajo.</p>
         <a href="#" class="btn">Learn More...</a>
     </section>
@@ -41,10 +48,11 @@
     <section class="features">
         <h2>Features</h2>
         <ul>
-            <li><i class="fa-solid fa-file fa-beat"></i>Find Jobs</li>
-            <li><i class="fas fa-check-circle"></i>Company Category</li>
-            <li><i class="fas fa-check-circle"></i>Job Circular</li>
-            <li><i class="fas fa-check-circle"></i>Live Chat</li>
+            <li><i class="fa-solid fa-person-running"></i>Find Jobs</li>
+            <li><i class="fa-solid fa-building-user"></i>Company Category</li>
+            <li><i class="fas fa-file-check"></i>Job Circular</li>
+            <li><i class="fa-solid fa-user-headset"></i>Live Chat</li>
+
         </ul>
     </section>
 
@@ -66,25 +74,37 @@
             <p>Oral exam and score added to user profile.</p>
         </div>
     </section>
+    <section class="additional">
+        <h2>Additional Section</h2>
+        <div class="image">
+            <img src="placeholder.jpg" alt="Image 1">
+        </div>
+        <div class="image">
+            <img src="placeholder.jpg" alt="Image 2">
+        </div>
+        <div class="image">
+            <img src="placeholder.jpg" alt="Image 3">
+        </div>
+        <div class="image">
+            <img src="placeholder.jpg" alt="Image 4">
+        </div>
+        <div class="image">
+            <img src="placeholder.jpg" alt="Image 5">
+        </div>
+        <div class="image">
+            <img src="placeholder.jpg" alt="Image 6">
+        </div>
+    </section>
 </main>
 
 <footer>
     <p>&copy; 2023 ChakriKhojo.com</p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-    var type =new Typed(".test",{
-         strings : ["{{session('User')}}"],
-        loop : true,
-        typeSpeed : 100,
-        backSpeed : 150,
-        backDelay : 1500
-    })
-</script>
 
-
+<script src="https://kit.fontawesome.com/a87236255f.js" crossorigin="anonymous"></script>
 </body>
 </html> -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -332,23 +352,16 @@
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="jobcircular">Job Circular</a>
+    <a href="yourjob">Your Jobs</a>
+    <a href="jobpost">Job Post</a>
+    <a href="viewcv">All CV</a>
     <a href="welcome">Logout</a>
-    
-    <div class="dropdown">
-      <button class="dropbtn">{{session("User")}}</button>
-      <div class="dropdown-content">
-        <a href="viewresume">View Resume</a>
-        <a href="resume">Edit Resume</a>
-        <a href="profile">My Profile</a>
-      </div>
-    </div>
+    <a href="#">{{ session('mails') }}</a>
     
 
   <!-- Main Content -->
   <div class="main-content">
-    <h1>Welcome <label class="test"></label> to ChakiKhojo!!!!</h1>
+    <h1>Welcome {{ session("names") }} to ChakiKhojo!!!!</h1>
     <!-- Features -->
     <!-- <div class="features">
       <div class="feature">
@@ -395,16 +408,7 @@
     </div>
     <a href="#" class="chatbot">Chat with our Chatbot</a>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-    var type =new Typed(".test",{
-         strings : ["{{session('User')}}"],
-        loop : true,
-        typeSpeed : 100,
-        backSpeed : 150,
-        backDelay : 1500
-    })
-</script>
+  
 </body>
 
 </html>

@@ -12,10 +12,3 @@ class LoginControl extends Model
     public $incrementing = true;
     public $timestamps = false;
 }
-class publidetails extends Model
-{
-    public $table = 'user_personal_details';
-    public $primaryKey = 'User_mail';
-    public $incrementing = false;
-    public $timestamps = false;
-}

@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class company extends Model
+class address extends Model
 {
-    public $table = 'business_registration';
-    public $primaryKey = 'Serial No.';
-    public $incrementing = true;
+    public $table = 'user_personal_address';
+    public $primaryKey = 'User_mail';
+    public $incrementing = false;
     public $timestamps = false;
 }

@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class company extends Model
+class cvresumes extends Model
 {
-    public $table = 'business_registration';
-    public $primaryKey = 'Serial No.';
-    public $incrementing = true;
+    public $table = 'user_personal_details';
+    public $primaryKey = 'User_mail';
+    public $incrementing = false;
     public $timestamps = false;
 }

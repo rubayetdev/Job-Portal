@@ -1,0 +1,58 @@
+body{
+  background-color: rgb(200, 253, 253);
+
+}
+.job-listing{
+
+  width: 45%;
+  background-color: white;
+  border-radius: 5px;
+  border: 0.5px solid gray;
+  box-shadow: 1px 1px 1px 1px  rgb(221, 255, 255);
+  padding: 20px;
+  margin: 5px;
+  display: inline-block;
+
+}
+
+.job-listing p{
+  font-family: 'Poppins', sans-serif;
+}
+
+.job-listing h2{
+  font-family: 'Poppins', sans-serif;
+}
+.job-listing a{
+  font-family: 'Poppins', sans-serif;
+}
+.job-listing:hover{
+
+  box-shadow: 1px 1px 1px 1px  rgb(38, 189, 179);
+  border: 0.5px solid green;
+
+}
+.job_title{
+
+background-color: rgb(238, 238, 238);
+border-radius: 5px;
+padding: 10px 5px;
+
+}
+
+
+  
+
+.apply-btn{
+
+background-color: green;
+color: white;
+border-radius: 5px;
+padding: 8px 15px;
+text-decoration: none
+
+}
+.apply-btn:hover{
+
+  background-color: rgb(97, 224, 97);
+
+}

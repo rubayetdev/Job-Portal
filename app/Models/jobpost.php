@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class company extends Model
+class jobpost extends Model
 {
-    public $table = 'business_registration';
-    public $primaryKey = 'Serial No.';
-    public $incrementing = true;
+    public $table = 'job_post';
+    public $primaryKey = 'business_mail';
+    public $incrementing = false;
     public $timestamps = false;
 }

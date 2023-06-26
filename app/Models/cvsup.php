@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class company extends Model
+class cvsup extends Model
 {
-    public $table = 'business_registration';
-    public $primaryKey = 'Serial No.';
+    use HasFactory;
+    public $table = 'cvs';
+    public $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false;
 }
