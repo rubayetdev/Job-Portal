@@ -105,10 +105,7 @@
               <label for="same-address">Same as Present Address</label>
         </div>
       </div>
-      <div class="form-group">
-        <label for="photo">Photo:</label>
-        <input type="file" id="photo" class="form-control" name="photo" accept="image/*">
-      </div>
+      
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>

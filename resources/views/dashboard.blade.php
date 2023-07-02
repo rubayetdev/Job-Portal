@@ -92,7 +92,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Portal</title>
+  <title>{{session('User')}}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="//code.tidio.co/2l8awmiopxub2rsj7vuajrnkxy2xnqln.js" async></script>
   <style>
@@ -327,17 +327,19 @@
 
 <body>
   <!-- Navigation Bar -->
+  
   <div class="navbar">
-    <div class="logo">ChakiKhojo.com</div>
+  
+    <div class="logo">ChakriKhojo.com</div>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
+    <a href="canabout">About</a>
+    <a href="userservice">Services</a>
     <a href="#contact">Contact</a>
     <a href="jobcircular">Job Circular</a>
     <a href="welcome">Logout</a>
-    
+  
     <div class="dropdown">
-      <button class="dropbtn">{{session("User")}}</button>
+      <button class="dropbtn">{{session("name")}}</button>
       <div class="dropdown-content">
         <a href="viewresume">View Resume</a>
         <a href="resume">Edit Resume</a>
@@ -345,10 +347,11 @@
       </div>
     </div>
     
+  </div>
 
   <!-- Main Content -->
   <div class="main-content">
-    <h1>Welcome <label class="test"></label> to ChakiKhojo!!!!</h1>
+    <h1>Welcome <label class="test"></label> to ChakriKhojo!!!!</h1>
     <!-- Features -->
     <!-- <div class="features">
       <div class="feature">
@@ -395,6 +398,7 @@
     </div>
     <a href="#" class="chatbot">Chat with our Chatbot</a>
   </div>
+  
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
     var type =new Typed(".test",{
@@ -405,6 +409,7 @@
         backDelay : 1500
     })
 </script>
+
 </body>
 
 </html>

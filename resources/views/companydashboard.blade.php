@@ -347,21 +347,24 @@
 
 <body>
   <!-- Navigation Bar -->
+  @foreach($userPersonalDetails as $details)
   <div class="navbar">
-    <div class="logo">ChakiKhojo.com</div>
+    <div class="logo">ChakriKhojo.com</div>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
+    <a href="comabout">About</a>
+    <a href="comservice">Services</a>
     <a href="yourjob">Your Jobs</a>
     <a href="jobpost">Job Post</a>
     <a href="viewcv">All CV</a>
     <a href="welcome">Logout</a>
-    <a href="#">{{ session('mails') }}</a>
+    <a href="comprofile">{{ session('mails') }}</a>
+    <a><img src="{{asset('storage/' .$details->Profile_Pic)}}" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%;">
+    </a>
     
-
+  </div>
   <!-- Main Content -->
   <div class="main-content">
-    <h1>Welcome {{ session("names") }} to ChakiKhojo!!!!</h1>
+    <h1>Welcome {{ $details->business_name }} to ChakriKhojo!!!!</h1>
     <!-- Features -->
     <!-- <div class="features">
       <div class="feature">
@@ -408,7 +411,7 @@
     </div>
     <a href="#" class="chatbot">Chat with our Chatbot</a>
   </div>
-  
+  @endforeach
 </body>
 
 </html>

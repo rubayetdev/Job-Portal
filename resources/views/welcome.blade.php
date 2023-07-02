@@ -121,7 +121,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Portal</title>
+  <title>Chakrikhojo.com</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -357,10 +357,10 @@
 <body>
   <!-- Navigation Bar -->
   <div class="navbar">
-    <div class="logo">ChakiKhojo.com</div>
+    <div class="logo">ChakriKhojo.com</div>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
+    <a href="about">About</a>
+    <a href="service">Services</a>
     <a href="#contact">Contact</a>
     <div class="dropdown">
       <button class="dropbtn">Login</button>
@@ -380,7 +380,7 @@
 
   <!-- Main Content -->
   <div class="main-content">
-    <h1>Welcome to ChakiKhojo!!!!</h1>
+    <h1>Welcome to ChakriKhojo!!!!</h1>
     <!-- Features -->
     <div class="features">
       <div class="feature">

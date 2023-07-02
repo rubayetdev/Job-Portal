@@ -153,7 +153,7 @@
       <input type="submit" value="Login">
 
       <div class="forgot-password">
-        <a href="#">Forgot password?</a>
+        <a href="">Forgot password?</a>
       </div>
      
     </form>

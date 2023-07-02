@@ -452,7 +452,74 @@ function uploadpic(Request $request){
 
 }
 
+function bus(Request $request){
+    $mail = session('mails');
+    $userPersonalDetails = DB::table('business_registration')
+    ->where('company_mail', $mail)
+    ->get();
 
+    return view('comprofile',compact('userPersonalDetails'));
+}
+
+function readbusiness(Request $request){
+    $mail = session('mails');
+
+    $com_name = $request->input('com-name');
+    $company_license = $request->input('License');
+    $loc = $request->input('Location');
+    $phone = $request->input('phone');
+    $head = $request->input('head');
+    $pass = $request->input('password');
+    $pic = $request->file('propic');
+    $postal = $request->input('postal');
+
+    $userPersonalDetails = DB::table('business_registration')
+    ->where('company_mail', $mail)
+    ->update([
+        'business_name' => $com_name,
+        'business_license' => $company_license,
+        'telephone' => $phone,
+        'company_address' => $loc,
+        'headoffice' => $head,
+        'company_password' => $pass,
+        'postal_code' => $postal
+    ]);
+    if ($pic) {
+        $originalname = $pic->getClientOriginalName();
+        $path = $pic->storeAs('public/businessprofile', $originalname);
+        $path = str_replace('public/', '', $path);
+        
+    
+    
+        $userPersonalDetails = DB::table('business_registration')
+        ->where('company_mail', $mail)
+        ->update([
+            'Profile_Pic' =>$path
+        ]);
+    }
+
+    return redirect()->route('comprofile');
+    
+
+    
+}
+
+function profile_pic(Request $request){
+    $mail = session('mails');
+    $userPersonalDetails = DB::table('business_registration')
+    ->where('company_mail', $mail)
+    ->get();
+
+    return view('companydashboard',compact('userPersonalDetails'));
+}
+
+function pro(Request $request){
+    $userPersonalDetails = DB::table('userdetails')
+    ->where('User_mail', session("name"))
+    ->get();
+
+    return view('dashboard',compact('userPersonalDetails'));
+}
 
 
 
