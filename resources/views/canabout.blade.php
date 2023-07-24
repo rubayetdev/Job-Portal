@@ -6,6 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meet Our Teams - Chakrikujo.com</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -163,8 +176,8 @@ Collaborates with the project manager to define technical requirements and proje
         <p>As a UI/UX Designer, Pias will be responsible for Works closely with the frontend developers and project manager to understand project requirements and goals.
 Creates wireframes, mockups, and prototypes to visualize the user interface and user experience of the application. Conducts user research, usability testing, and gathers feedback to iterate and improve the UI/UX design.</p>
       </div>
-      
-      
+
+
       <div class="team-card">
         <img src="{{asset('img/Zidan.jpg')}}" alt="Supportive Documentation">
         <h3>Nabil Hossain Zidan</h3>

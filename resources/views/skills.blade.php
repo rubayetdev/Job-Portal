@@ -6,7 +6,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
  <style>
-  
+
   body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -156,6 +156,19 @@
 
 </style>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
   <div class="resume">
@@ -163,7 +176,7 @@
       <form method="post" class="skill-upload" action="{{route('skill-upload')}}">
         @csrf
       <h1>{{session("User")}}</h1>
-      
+
     </div>
 
     <div class="section">
@@ -202,7 +215,7 @@
           <th>Graduation Year</th>
         </tr>
         </thead>
-        
+
         <tbody>
         @foreach($userAcademicDetails as $education)
         <tr>
@@ -210,10 +223,10 @@
           <td>{{$education->School}}</td>
           <td>{{$education->Passing_Year}}</td>
         </tr>
-        
+
         @endforeach
         </tbody>
-        
+
       </table>
     </div>
 

@@ -7,6 +7,18 @@
 	<link rel="stylesheet" href="{{asset('css/job.css')}}">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 
@@ -25,7 +37,7 @@
   <script type="text/javascript">
 		function yesno(that){
 			if(that.value=="Yes"){
-				
+
 				document.getElementById("ifYes").style.display = "block";
 			}
 			else{
@@ -51,17 +63,17 @@
        <div class="inputfield">
           <label>Company Name</label>
           <input type="text" name="company" class="input" value="{{ session('names') }}">
-       </div>  
+       </div>
 
        <div class="inputfield">
           <label>Company Mail</label>
           <input type="text" name="companymail" class="input" value="{{ session('mails') }}">
-       </div>  
+       </div>
 
        <div class="inputfield">
           <label>Vaccancies</label>
           <input type="number" name="vaccan" class="input">
-       </div>  
+       </div>
       <div class="inputfield">
           <label>Employment Status</label>
           <select class="custom_select" id="empstatus" name="emp">
@@ -80,8 +92,8 @@
             <option value="Only Female">Only Female</option>
             <option value="Both male and female">Both male and female</option>
           </select>
-       </div> 
-        
+       </div>
+
         <div class="inputfield">
           <label>Age</label>
           <input type="text" name="age" class="input">
@@ -89,19 +101,19 @@
        <div class="inputfield">
           <label>Experience</label>
           <input type="text" name ="experience" class="input">
-       </div> 
+       </div>
       <div class="inputfield">
           <label>Job Location</label>
           <input type="text" name="loc" class="input">
-       </div> 
+       </div>
       <div class="inputfield">
           <label>Job Responsibilities</label>
           <textarea class="textarea" name="reponsibiliti"></textarea>
-       </div> 
+       </div>
        <div class="inputfield">
           <label>Job Requirment</label>
           <textarea class="textarea" name="requirment"></textarea>
-       </div> 
+       </div>
        <div class="inputfield">
           <label>Salary</label>
           <select class="custom_select" name="Salary" onchange="yesno(this)">
@@ -112,23 +124,23 @@
 <div id="ifYes" class="inputfield" style="display:none;">
 	<input type="text" name ="Salary" class="input">
 </div>
-       </div> 
+       </div>
        <div class="inputfield">
           <label>Deadline</label>
           <input id="dl" type="text" name="DeadLIne"class="input">
-       </div> 
+       </div>
       <div class="inputfield terms">
           <label class="check">
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
           <p>Agreed to terms and conditions</p>
-       </div> 
+       </div>
       <div class="inputfield">
         <input type="submit" value="Register" class="btn">
       </div>
     </div>
-</div>	
+</div>
 </form>
 </body>
 </html>

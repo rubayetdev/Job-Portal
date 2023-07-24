@@ -99,6 +99,18 @@
       }
     }
   </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
@@ -109,13 +121,14 @@
     <div class="profile-picture">
       <img id="profile-picture" src="{{asset('storage/' . $update->Profile_Pic)}}" alt="Profile Picture">
       <br>
-      
+
       <input type="file" accept="image/*" id="profile-picture-upload" name="propic" onchange="readURL(this)">
       <label for="profile-picture-upload">Upload</label>
-  
+
     </div>
-    
-    
+
+
+
       <div class="form-group">
         <label for="first-name">Name:</label>
         <input type="text" id="first-name" name="first-name" value="{{$update->User_name}}" required>

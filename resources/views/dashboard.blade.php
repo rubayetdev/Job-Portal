@@ -1,90 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakri Khojo</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <script src="//code.tidio.co/2l8awmiopxub2rsj7vuajrnkxy2xnqln.js" async></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="home">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#service">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="jobcircular">Job Circular</a></li>
-            <li><a href="welcome">Logout</a></li>
-            <li><a href="resume">{{session("User")}}</a></li>
-           
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <section class="hero">
-        <h1>Welcome <label class="test"></label></h1> <h1><span>to ChakriKhojo.com</span> </h1>
-        <p>Chakri Khojo Chakor Sajo.</p>
-        <a href="#" class="btn">Learn More...</a>
-    </section>
-
-    <section class="features">
-        <h2>Features</h2>
-        <ul>
-            <li><i class="fa-solid fa-file fa-beat"></i>Find Jobs</li>
-            <li><i class="fas fa-check-circle"></i>Company Category</li>
-            <li><i class="fas fa-check-circle"></i>Job Circular</li>
-            <li><i class="fas fa-check-circle"></i>Live Chat</li>
-        </ul>
-    </section>
-
-    <section class="services" id="service">
-        <h2>Our Services</h2>
-        <div class="service">
-            <img src="service1.jpg" alt="Service 1">
-            <h3>Service 1</h3>
-            <p>User can find job with automated resume create.</p>
-        </div>
-        <div class="service">
-            <img src="service2.jpg" alt="Service 2">
-            <h3>Service 2</h3>
-            <p>Live chat with companies.</p>
-        </div>
-        <div class="service">
-            <img src="service3.jpg" alt="Service 3">
-            <h3>Service 3</h3>
-            <p>Oral exam and score added to user profile.</p>
-        </div>
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2023 ChakriKhojo.com</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-    var type =new Typed(".test",{
-         strings : ["{{session('User')}}"],
-        loop : true,
-        typeSpeed : 100,
-        backSpeed : 150,
-        backDelay : 1500
-    })
-</script>
-
-
-</body>
-</html> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -323,30 +236,46 @@
       display: block;
     }
   </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
   <!-- Navigation Bar -->
-  
+
   <div class="navbar">
-  
+
     <div class="logo">ChakriKhojo.com</div>
     <a href="#home">Home</a>
     <a href="canabout">About</a>
     <a href="userservice">Services</a>
     <a href="#contact">Contact</a>
     <a href="jobcircular">Job Circular</a>
-    <a href="welcome">Logout</a>
-  
+      <a href="submittedjobs">Submitted Jobs</a>
+    <a href="logout">Logout</a>
+
     <div class="dropdown">
-      <button class="dropbtn">{{session("name")}}</button>
+      <button class="dropbtn">{{session('name')}}</button>
       <div class="dropdown-content">
         <a href="viewresume">View Resume</a>
         <a href="resume">Edit Resume</a>
         <a href="profile">My Profile</a>
       </div>
     </div>
-    
+
+      @foreach($userPersonalDetails as $deatils)
+      <a href="#"><img src="{{asset('storage/' .$deatils->Profile_Pic)}}" style="width: 30px; height: 30px; border-radius: 50%;"></a>
+      @endforeach
   </div>
 
   <!-- Main Content -->
@@ -389,7 +318,7 @@
   <div class="footer">
     <div class="contact-info">
       <p>Contact us:</p>
-      <p>info@chakikhujo.com</p>
+      <p>info@chakrikhojo.com</p>
     </div>
     <div class="social-media">
       <a href="#" class="fab fa-linkedin"></a>
@@ -398,7 +327,7 @@
     </div>
     <a href="#" class="chatbot">Chat with our Chatbot</a>
   </div>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
     var type =new Typed(".test",{

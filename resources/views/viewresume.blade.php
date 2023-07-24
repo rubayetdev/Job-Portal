@@ -113,22 +113,34 @@
       background-color: #45a049;
     }
   </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="resume">
-    
+
     <div class="header">
     @foreach($userPersonalDetails as $details)
       <img class="profile-picture" src="{{asset('storage/' . $details->Profile_Pic)}}" alt="Profile Picture">
       @endforeach
       <h1>{{session("User")}}</h1>
-      
-      
+
+
       @foreach($userSkillsDetails as $skill)
       <p>{{$skill->Ex_position}}</p>
       @endforeach
     </div>
-    
+
     <div class="section">
       <h2 class="section-title">Contact Information</h2>
       <table>

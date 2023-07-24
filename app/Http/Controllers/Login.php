@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\LoginControl;
 use Illuminate\Support\Facades\DB;
 use App\Models\cvresumes;
@@ -14,45 +16,62 @@ use App\Models\academic;
 use App\Models\jobpost;
 use App\Models\cvsup;
 use App\Models\skills;
+use App\Models\User;
+use App\Models\follow;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class Login extends Controller
 {
 
     function Insert(Request $request)
     {
+
+
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
         $phone = $request->input('phone');
         $address = $request->input('address');
 
-        $isInsert = LoginControl::insert(['User_name'=>$name,
-            'User_mail'=>$email,'User_Password'=>$password,'User_Phone'=>$phone,'User_Address'=>$address]);
-        if($isInsert){ 
-            return view('welcome')->with('message','Registration Successfull');
+        $isInsert = User::insert(['name'=>$name,
+            'email'=>$email,'password'=>$password,'phone'=>$phone,'address'=>$address]);
+
+        $isInsert = Auth::user();
+        if($isInsert){
+            event(new Registered($isInsert));
+            return redirect('welcome')->with('message','Registration Successfull');
         }
-        else echo '<h1>Failed/h1>';
+        else {echo '<h1>Failed</h1>';}
+
     }
-    function login(Request $request)
+    function userlogin(Request $request) :RedirectResponse
     {
-        $user = DB::table('userdetails')
-        ->where('User_mail', $request->input('email'))
-        ->where('User_Password',$request->input('password'))
-        ->first();
-        if ($user) {
+        $user2 = $request->user();
+        $user2 = DB::table('users')
+        ->where('email',$request->input('email'))
+        ->where('password',$request->input('password'))->first();
+
+
+
+        if ($user2) {
+
             // dd();
             // Password matches
             if (session()->isStarted()) {
-                $data = $request->session()->put('name', $user->User_mail);
-                $Data2 = $request->session()->put('User', $user->User_name);
-                $Data3 = $request->session()->put('phone', $user->User_Phone);
-                $Data4 = $request->session()->put('address', $user->User_Address);
-                
-                
-            
-            return view('dashboard');
+                 $data = $request->session()->put('name', $user2->email);
+                 $Data2 = $request->session()->put('User', $user2->name);
+                 $Data3 = $request->session()->put('phone', $user2->phone);
+                 $Data4 = $request->session()->put('address', $user2->address);
+
+
+
+            return redirect('dashboard');
             }
+
         } else {
             // Password doesn't match
             $message = 'Login failed. Please check your credentials.';
@@ -68,49 +87,49 @@ class Login extends Controller
         $company_number = $re->input('company_number');
         $company_address = $re->input('company_address');
         $company_postal_code = $re->input('company_postal_code');
-    
-        
+
+
 
         $companyinsertion = company::insert([
             'business_name'=>$company_name,
         'business_license'=>$company_license,'company_mail'=>$company_email,'telephone'=>$company_number,
         'company_address'=>$company_address,'company_password'=>$company_password,'postal_code'=>$company_postal_code]);
         if ($companyinsertion) {
-            return view('welcome');
+            return redirect('welcome');
         } else {
             echo 'failed';
         }
-    
-        
+
+
     }
     function company_login(Request $requ) {
         //dd($requ->input());
         $user2 = DB::table('business_registration')
             ->where('company_mail', $requ->input('email'))
             ->where('company_password', $requ->input('password'))->first();
-            
-    
+
+
         if ($user2) {
             if(session()->isStarted()){
              $datas = $requ->session()->put('names', $user2->business_name);
              $datas2 = $requ->session()->put('mails', $user2->company_mail);
-             
+
             return redirect('companydashboard');
             }
-            
+
         } else {
             $message = 'Login failed. Please check your credentials.';
             return redirect()->back()->with('message', $message);
         }
     }
-    
+
     function cv_post(Request $requs)
     {
         $jobtitle = $requs->input('title');
         $youremail = $requs->input('email');
         $business = $requs->input('businessemail');
         $file = $requs->file('file');
-        
+
         if($file){
             $originalname = $file->getClientOriginalName();
             $path = $file->storeAs('public/cv', $originalname);
@@ -123,7 +142,7 @@ class Login extends Controller
         ]);
 
         if($cvupload){
-            echo 'success';
+            return redirect('dashboard');
         }
         else
         echo 'failed';
@@ -134,8 +153,8 @@ class Login extends Controller
 
     function redpdf(Request $reu)
 {
-    
-    
+
+
     // $data = DB::table('cvs')->where('business_mail', $bus)->get();
 
     // if ($data->count() > 0) {
@@ -151,6 +170,8 @@ class Login extends Controller
 
 function deletejob(Request $request){
     $data = jobpost::all();
+
+
     return view('yourjob',['dataa'=>$data]);
 }
 function deltepost($busmail, $job_Title){
@@ -161,11 +182,21 @@ function deltepost($busmail, $job_Title){
     return redirect()->back()->with('success', 'Job post deleted successfully.');
 }
 
+    function unfollow($mail,$user)
+    {
+        $unfollow =DB::table('following')
+            ->where('User_mail',$user)
+            ->where('Business_mail',$mail)
+            ->delete();
+
+        return redirect('jobcircular');
+
+}
 
 public function view ($id){
     $item = cvsup::find($id);
-    return view('viewcvs',compact('item'));   
-    
+    return view('viewcvs',compact('item'));
+
 }
 
     function job_posting(Request $requu){
@@ -200,14 +231,20 @@ public function view ($id){
         ]);
 
         if($postjob){
-            echo '<h1>Success</h1>';
+           return redirect('companydashboard');
         }
         else echo '<h1>Falied</h1>';
     }
 
     function alldata(){
         $data = jobpost::all();
-        return view('jobcircular',['datas'=>$data]);
+
+        $user = session('name');
+        $total = DB::table('following')
+            ->where('User_mail',$user)
+            ->count();
+
+        return view('jobcircular',['datas'=>$data],compact('total'));
     }
     function resumeInsert(Request $reqq)
 {
@@ -220,12 +257,12 @@ public function view ($id){
     $grp = $reqq->input('BloodGroup');
     $nation = $reqq->input('nationality');
     $propic = $reqq->file('photo');
-    
+
     if($propic){
         $originalname = $propic->getClientOriginalName();
         $path = $propic->storeAs('public/profile',$originalname);
         $path = str_replace('public/','',$path);
-    
+
     if (!empty($mail)) {
         $insertcv = cvresumes::insert([
             'User_name' => $name,
@@ -239,10 +276,10 @@ public function view ($id){
             'Profile_Pic' => $path
         ]);
 
-        
+
 
         if ($insertcv) {
-            
+
             return view('address');
         } else {
             echo '<h1>Failed</h1>';
@@ -261,7 +298,7 @@ function addressinsert(Request $reqq)
     $pervill = $reqq->input('permanent-village');
     $perzip = $reqq->input('permanent-zip');
     $percity = $reqq->input('permanent-city');
-        
+
         $insertadd = address::insert([
             'User_mail' => $mail,
             'Present_address' => $preadd,
@@ -272,7 +309,7 @@ function addressinsert(Request $reqq)
             'Permanent_Village' => $pervill,
             'Permanent_Zip' => $perzip,
             'Permanent_City' => $percity,
-            
+
         ]);
     if($insertadd){
         return view ('academic');
@@ -301,7 +338,7 @@ function academicinsert(Request $reqq)
         'Passing_Year' =>$Year
     ]);
 
-    
+
     if($inseracademic){
         return view('academic');
     }
@@ -311,7 +348,7 @@ function academicinsert(Request $reqq)
 
     function readData(Request $request)
 {
-    
+
     $userPersonalDetails = DB::table('user_personal_details')
     ->where('User_mail', session("name"))
     ->get();
@@ -388,7 +425,7 @@ function forresume(Request $request){
     ->where ('User_mail',session("name"))
     ->get();
 
-    
+
 
     return view('skills', compact('userPersonalDetails','userAddressDetails','userAcademicDetails'));
 
@@ -407,7 +444,7 @@ function viewprofile(Request $request){
     $updateProfile = DB::table('user_personal_details')
     ->where('User_mail', $email)
     ->get();
-    
+
     return view('profile2', compact('updateProfile'));
 }
 
@@ -421,7 +458,7 @@ function uploadpic(Request $request){
     $blood = $request->input('blood-group');
     $updatepic = $request->file('propic');
 
-    
+
     $updateProfile = DB::table('user_personal_details')
     ->where('User_mail', session("name"))
     ->update([
@@ -431,16 +468,16 @@ function uploadpic(Request $request){
         'User_Phone'=>$phone,
         'User_Nationality'=>$nation,
         'Blood_Group'=>$blood,
-        
+
     ]);
 
     if ($updatepic) {
         $originalname = $updatepic->getClientOriginalName();
         $path = $updatepic->storeAs('public/profile', $originalname);
         $path = str_replace('public/', '', $path);
-        
-    
-    
+
+
+
     $updateProfile = DB::table('user_personal_details')
         ->where('User_mail', session("name"))
         ->update([
@@ -458,7 +495,12 @@ function bus(Request $request){
     ->where('company_mail', $mail)
     ->get();
 
-    return view('comprofile',compact('userPersonalDetails'));
+    $total = DB::table('following')
+        ->where('Business_mail',$mail)
+        ->count();
+
+
+    return view('comprofile',compact('userPersonalDetails','total'));
 }
 
 function readbusiness(Request $request){
@@ -488,9 +530,9 @@ function readbusiness(Request $request){
         $originalname = $pic->getClientOriginalName();
         $path = $pic->storeAs('public/businessprofile', $originalname);
         $path = str_replace('public/', '', $path);
-        
-    
-    
+
+
+
         $userPersonalDetails = DB::table('business_registration')
         ->where('company_mail', $mail)
         ->update([
@@ -498,10 +540,13 @@ function readbusiness(Request $request){
         ]);
     }
 
-    return redirect()->route('comprofile');
-    
 
-    
+
+
+    return redirect()->route('comprofile');
+
+
+
 }
 
 function profile_pic(Request $request){
@@ -514,24 +559,42 @@ function profile_pic(Request $request){
 }
 
 function pro(Request $request){
-    $userPersonalDetails = DB::table('userdetails')
-    ->where('User_mail', session("name"))
+    $mail = session('name');
+    $userPersonalDetails = DB::table('user_personal_details')
+    ->where('User_mail', $mail)
     ->get();
 
     return view('dashboard',compact('userPersonalDetails'));
 }
 
+function showCV(Request $request){
+    $mail = session('name');
+    $userPersonalDetails = DB::table('cvs')
+        ->where('candidate_mail', $mail)
+        ->get();
 
+    return view('submittedjobs',compact('userPersonalDetails'));
+}
+function logout(Request $request){
+    Auth::logout();
+    Session::flush();
+    return redirect('welcome');
+}
 
+function insertFollow(Request $request){
+        $name = $request->input('user');
+        $bus = $request->input('mail');
 
-// function cvdata(Request $res){
-//     $users = DB::table()
-// }
-
-
-
-
-
+        $insert=follow::insert([
+            'User_mail'=>$name,
+            'Business_mail'=>$bus
+        ]);
+        if($insert){
+            return redirect('jobcircular');
+        }
+        else{
+            echo 'failed';
+        }
+}
 
 }
-    

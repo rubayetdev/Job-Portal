@@ -52,6 +52,19 @@
       color: #23527c;
     }
   </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
+    
 </head>
 <body>
   <h1>Job Portal</h1>
@@ -80,10 +93,10 @@
         <td>{{ $item->Deadline }}</td>
         <td><a href="{{route('deletepost',['busmail'=>session('mails'),'job_Title'=>$item->job_title])}}">Delete</a></td>
       </tr>
-      
+
     </tbody>
     @endforeach
-    
+
   </table>
 </body>
 </html>

@@ -21,9 +21,9 @@
   <div class="job-listing">
     <h2 class="job_title">{{ $user->job_title }}</h2>
     <p class="company">{{ $user->company_name }}</p>
-    
 
-    
+
+
 
 
     <p class="company">Vaccan: {{ $user->vaccacines }}</p>
@@ -107,28 +107,54 @@
     .job-circular-heading {
       color: #4CAF50;;
     }
+    .hide{
+        display: none;
+    }
   </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="container">
     <h2><span class="job-circular-heading">Job Circular</span> - ChakriKhojo.com</h2>
+      <form action="following" method="post">
+          @csrf
+      <label class="hide">{{session("name")}}</label>
+          <input type="hidden" name="user" value="{{session("name")}}">
+          <p>{{$total}} Following</p>
     @foreach($datas as $user)
     <div class="job-circular">
       <h3 class="job-title">{{ $user->job_title }}</h3>
       <p class="job-description">{{$user->company_name}}</p>
+        <p class="job-description hide">{{$user->business_mail}}</p>
+        <input type="hidden" name="mail" value="{{$user->business_mail}}">
       <p class="job-description">{{$user->job_responsibilities}}</p>
       <p class="job-description">{{$user->job_requirment}}</p>
-      <p class="job-description">{{$user->vaccacines}}</p>
-      <p class="job-description">{{$user->age}}</p>
+        <p class="job-description">{{$user->vaccacines}}</p>
+        <p class="job-description">{{$user->age}}</p>
       <p class="job-description">{{$user->experience}}</p>
       <p class="job-description">{{$user->Location}}</p>
       <p class="job-description">{{$user->Salary}}</p>
       <p class="job-description">{{$user->Deadline}}</p>
       <button class="apply-button"><a href="apply?businessemail={{ $user->business_mail }}&title={{ $user->job_title}}" class="apply-btn">Apply Now</a></button>
+        <button class="apply-button">Follow</button>
+        <button class="apply-button"><a href="{{route('unfollow',['mail'=>$user->business_mail,'user'=>session("name")])}}">Unfollow</a></button>
+
     </div>
     @endforeach
-    
+      </form>
   </div>
 </body>
 

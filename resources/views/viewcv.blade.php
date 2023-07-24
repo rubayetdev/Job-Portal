@@ -11,41 +11,41 @@
         margin: 0;
         padding: 0;
     }
-    
+
     table {
         width: 100%;
         border-collapse: collapse;
     }
-    
+
     table td, table th {
         padding: 8px;
         border: 1px solid #ddd;
     }
-    
+
     table th {
         background-color: #f2f2f2;
     }
-    
+
     input[type="text"] {
         padding: 8px;
         width: 100%;
         box-sizing: border-box;
         margin-bottom: 10px;
     }
-    
+
     a {
         color: #337ab7;
         text-decoration: none;
     }
-    
+
     a:hover {
         text-decoration: underline;
     }
 </style>
 
 <body>
-        
-    
+
+
 <label>Your mail:</label>
 <input type="text" name="busmail" value="{{ session('mails') }}">
 
@@ -128,6 +128,18 @@
       color: #23527c;
     }
   </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
 </head>
 <body>
   <h1>Job Portal</h1>
@@ -156,7 +168,7 @@
         <td><a target="_blank" href="{{ asset('storage/' . $item->file_data) }}">View</a></td>
         <td>{{ $item->Time }}</td>
       </tr>
-      
+
     </tbody>
     @endforeach
   </table>

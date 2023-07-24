@@ -2,7 +2,7 @@
 <head>
     <title>Registration Form</title>
     <link rel="stylesheet" href="{{asset('css/registration.css')}}">
-    
+
 
 </head>
 <body>
@@ -17,36 +17,36 @@
        <div class="inputfield">
           <label>Full Name</label>
           <input type="text" class="input" name="name" required>
-       </div>  
-       
+       </div>
+
        <div class="inputfield">
           <label>Email</label>
           <input type="email" class="input" id="email" name="email" required>
-       </div>  
+       </div>
       <div class="inputfield">
           <label>Password</label>
           <input type="password" class="input" id="password" name="password" required>
-       </div> 
-        
+       </div>
+
         <div class="inputfield">
           <label>Confirm Password</label>
           <input type="password" class="input"id="confirm-password" name="confirm-password" required>
-       </div> 
+       </div>
       <div class="inputfield">
           <label>Phone Number</label>
           <input type="tel" class="input" id="phone" name="phone" required>
-       </div> 
+       </div>
       <div class="inputfield">
           <label>Address</label>
           <textarea class="textarea" name="address" id="address" required></textarea>
-       </div> 
+       </div>
       <div class="inputfield terms">
           <label class="check">
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
           <p>Agreed to terms and conditions</p>
-       </div> 
+       </div>
       <div class="inputfield">
         <input type="submit" value="Register" class="btn">
       </div>
@@ -64,7 +64,18 @@
   <title>Sign Up | ChakriKhojo.com</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -203,7 +214,7 @@
 
       <input type="submit" value="Sign Up">
 
-      
+
     </form>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

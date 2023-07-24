@@ -38,7 +38,7 @@
             <li><a href="#">About</a></li>
             <li><a href="#service">Services</a></li>
             <li><a href="#">Contact</a></li>
-            
+
             <li class="dropdown">
             <a href="#" class="dropbtn">Login</a>
                 <div class="dropdown-content">
@@ -75,7 +75,7 @@
         </ul>
     </section>
 
-    
+
     <section class="additional">
         <h2>Additional Section</h2>
         <div class="image">
@@ -107,7 +107,7 @@
         <p>Address: Mirpur-2, Dhaka</p>
     </div>
     <p>&copy; 2023 ChakriKhojo.com</p>
-    
+
 </footer>
 
 
@@ -127,6 +127,18 @@
 
   <script src="//code.tidio.co/2l8awmiopxub2rsj7vuajrnkxy2xnqln.js" async></script>
   <script src="https://kit.fontawesome.com/a87236255f.js" crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
   <style>
     /* CSS styles */
     body {
@@ -136,7 +148,7 @@
       background-color: #f4f6f9;
     }
 
-    
+
 
     /* Navigation Bar */
     .navbar {
@@ -260,7 +272,7 @@
     color: #000000;
     font-weight: bold;
   }
-  
+
 
 
     /* Contact Info */
@@ -274,7 +286,7 @@
     }
 
     /* Chatbot */
-    
+
 
     /* Search Bar */
     .search-container {
@@ -355,6 +367,7 @@
 
 
 <body>
+
   <!-- Navigation Bar -->
   <div class="navbar">
     <div class="logo">ChakriKhojo.com</div>
@@ -418,7 +431,7 @@
   <div class="footer">
   <div class="contact-info">
     <p>Contact us:</p>
-    <p>info@chakikhujo.com</p>
+    <p>info@chakikhojo.com</p>
   </div>
   <div class="social-media">
     <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" style="color: #0b5fef;"></i></a>

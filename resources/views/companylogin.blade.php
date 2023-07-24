@@ -29,27 +29,38 @@
        <div class="inputfield">
           <label>Email:</label>
           <input type="text" class="input" name="email" id="username" required>
-       </div>  
-       
+       </div>
+
        <div class="inputfield">
           <label>Password</label>
           <input type="password" class="input" id="password" name="password" required>
-       </div>  
+       </div>
        <div class="inputfield">
         <input type="submit" value="Register" class="btn">
       </div>
     </div>
-    
+
     </div>
 </form>
 </body>
-</html> --> 
+</html> -->
 
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>Business Login | ChakriKhojo.com</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
   <style>
     body {
       font-family: Arial, sans-serif;

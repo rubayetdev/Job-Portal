@@ -3,6 +3,19 @@
 <head>
   <title>User Information Form - Address</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
   <style>
     body {
       background-color: #f5f5f5;
@@ -105,7 +118,7 @@
               <label for="same-address">Same as Present Address</label>
         </div>
       </div>
-      
+
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>

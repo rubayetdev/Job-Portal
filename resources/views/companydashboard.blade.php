@@ -39,7 +39,7 @@
 
 <main>
     <section class="hero">
-        
+
     <h1>Welcome {{ session("names") }} to ChakriKhojo.com</h1>
         <p>Chakri Khojo Chakor Sajo.</p>
         <a href="#" class="btn">Learn More...</a>
@@ -343,11 +343,23 @@
       display: block;
     }
   </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
   <!-- Navigation Bar -->
-  @foreach($userPersonalDetails as $details)
+
   <div class="navbar">
     <div class="logo">ChakriKhojo.com</div>
     <a href="#home">Home</a>
@@ -358,13 +370,15 @@
     <a href="viewcv">All CV</a>
     <a href="welcome">Logout</a>
     <a href="comprofile">{{ session('mails') }}</a>
+      @foreach($userPersonalDetails as $details)
     <a><img src="{{asset('storage/' .$details->Profile_Pic)}}" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%;">
     </a>
-    
+
   </div>
   <!-- Main Content -->
   <div class="main-content">
     <h1>Welcome {{ $details->business_name }} to ChakriKhojo!!!!</h1>
+      @endforeach
     <!-- Features -->
     <!-- <div class="features">
       <div class="feature">
@@ -402,7 +416,7 @@
   <div class="footer">
     <div class="contact-info">
       <p>Contact us:</p>
-      <p>info@chakikhujo.com</p>
+      <p>info@chakrikhojo.com</p>
     </div>
     <div class="social-media">
       <a href="#" class="fab fa-linkedin"></a>
@@ -411,7 +425,7 @@
     </div>
     <a href="#" class="chatbot">Chat with our Chatbot</a>
   </div>
-  @endforeach
+
 </body>
 
 </html>

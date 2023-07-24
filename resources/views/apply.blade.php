@@ -2,7 +2,20 @@
 <html>
 <head>
     <title>Upload Options</title>
-    
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
+
 <style>
     .upload-container {
   margin-bottom: 20px;
@@ -44,11 +57,11 @@ input[type="file"] {
 }
 
 </style>
-    
+
 </head>
 <body>
     <h1>Upload Options</h1>
-    
+
     <form action="{{route('uploadcv')}}" class="uploadcv" method="post" enctype="multipart/form-data">
         @csrf
         <div class="upload-container">
@@ -70,7 +83,7 @@ input[type="file"] {
         <input type="file" id="fileInput" name="file" class="file-input">
         <span class="file-name"></span>
     </div>
-    
+
     <input type="submit" value="Upload" class="submit-button">
 </form>
 

@@ -17,49 +17,49 @@
        <div class="inputfield">
           <label>Company Name</label>
           <input type="text" class="input" name="company_name">
-       </div>  
-       
+       </div>
+
        <div class="inputfield">
           <label>Password</label>
           <input type="password" class="input" name="company_password">
-       </div>  
+       </div>
       <div class="inputfield">
           <label>Confirm Password</label>
           <input type="password" class="input" name="company_confirm">
-       </div> 
+       </div>
         <div class="inputfield">
           <label>Company License No:</label>
           <input type="text" class="input" name="company_license">
-       </div> 
+       </div>
         <div class="inputfield">
           <label>Company Email</label>
           <input type="email" class="input" name="company_email">
-       </div> 
+       </div>
       <div class="inputfield">
           <label>Telephone Number</label>
           <input type="text" class="input" name="company_number">
-       </div> 
+       </div>
       <div class="inputfield">
           <label>Company Address</label>
           <textarea class="textarea" name="company_address"></textarea>
-       </div> 
+       </div>
       <div class="inputfield">
           <label>Postal Code</label>
           <input type="text" class="input" name="company_postal_code">
-       </div> 
+       </div>
       <div class="inputfield terms">
           <label class="check">
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
           <p>Agreed to terms and conditions</p>
-       </div> 
+       </div>
       <div class="inputfield">
         <input type="submit" value="Register" class="btn">
       </div>
     </div>
-</div>	
-	
+</div>
+
 </body>
 </html> -->
 
@@ -68,6 +68,18 @@
 
 <head>
   <title>Sign Up | ChakriKhojo.com</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRDC9VYF7M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TRDC9VYF7M');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1996841609387194"
+            crossorigin="anonymous"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -162,27 +174,27 @@
    @csrf
       <div class="form-group">
         <label for="fullname">Company Name:</label>
-        <input type="text" id="fullname" name="company_name" placeholder="Enter your full name" required>
+        <input type="text" id="fullname" name="company_name" placeholder="Enter your company name" required>
       </div>
 
       <div class="form-group">
         <label for="fullname">Company License No:</label>
-        <input type="text" id="fullname" name="company_license" placeholder="Enter your full name" required>
+        <input type="text" id="fullname" name="company_license" placeholder="Enter your licence no." required>
       </div>
 
       <div class="form-group">
         <label for="email">Password:</label>
-        <input type="password" id="email" name="company_password" placeholder="Enter your email" required>
+        <input type="password" id="email" name="company_password" placeholder="Enter your password" required>
       </div>
 
       <div class="form-group">
         <label for="password">Confirm Password:</label>
-        <input type="password" id="password" name="company_confirm" placeholder="Enter your password" required>
+        <input type="password" id="password" name="company_confirm" placeholder="Enter your confirm password" required>
       </div>
 
       <div class="form-group">
         <label for="confirm_password">Email:</label>
-        <input type="email" id="confirm_password" name="company_email" placeholder="Confirm your password"
+        <input type="email" id="confirm_password" name="company_email" placeholder="Confirm your email"
           required>
       </div>
 
@@ -193,7 +205,7 @@
 
       <div class="form-group">
         <label for="phone">Postal Code:</label>
-        <input type="tel" id="phone" name="company_postal_code" placeholder="Enter your phone number" required>
+        <input type="tel" id="phone" name="company_postal_code" placeholder="Enter your postal code" required>
       </div>
 
       <div class="form-group">
@@ -203,7 +215,7 @@
 
       <input type="submit" value="Sign Up">
 
-      
+
     </form>
   </div>
 </body>

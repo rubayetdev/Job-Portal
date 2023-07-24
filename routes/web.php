@@ -2,22 +2,83 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Login;
-use App\Http\Controllers\UserAuth;
+use App\Http\Controllers\Auth;
+use App\Http\Controllers\Auth\Verification;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Http\Request;
+use App\Models\LoginControl;
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Str;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/forget', function () {
+  return view('forget');
+})->name('password.request');
+
+Route::post('/forget', function (Request $request) {
+  $request->validate(['email' => 'required|email']);
+
+  $status = Password::sendResetLink(
+      $request->only('email')
+  );
+
+  return $status === Password::RESET_LINK_SENT
+              ? back()->with(['status' => __($status)])
+              : back()->withErrors(['email' => __($status)]);
+})->name('password.email');
+
+Route::get('/reset/{token}', function (string $token) {
+  return view('reset', ['token' => $token]);
+})->name('password.reset');
+
+Route::post('/reset', function (Request $request) {
+  $request->validate([
+      'token' => 'required',
+      'email' => 'required|email',
+      'password' => 'required|confirmed',
+  ]);
+
+  $status = Password::reset(
+    $request->only('email', 'password', 'password_confirmation', 'token'),
+    function (User $user, string $password) {
+        $user->forceFill([
+            'password' => $password
+        ])->setRememberToken(Str::random(60));
+
+        $user->save();
+
+        event(new PasswordReset($user));
+    }
+);
+
+
+  return $status === Password::PASSWORD_RESET
+              ? redirect()->route('login')->with('status', __($status))
+              : back()->withErrors(['email' => [__($status)]]);
+})->name('password.update');
+
+
+
+
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
 Route::get('/home', function () {
     return view('home');
 });
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::get('/companylogin', function () {
     return view('companylogin');
@@ -92,7 +153,7 @@ Route::post('update-profile',[Login::class,'uploadpic'])->name('update-profile')
 
 Route::post('registration-form',[Login::class,'Insert'])->name('registration-form');
 
-Route::post('login-form', [Login::class, 'login'])->name('login-form');
+Route::post('login-form', [Login::class, 'userlogin'])->name('login-form');
 Route::post('comlogin', [Login::class, 'company_login'])->name('comlogin');
 
 Route::post('post-details', [Login::class, 'resumeInsert'])->name('post-details');
@@ -106,14 +167,21 @@ Route::post('job-post', [Login::class, 'job_posting'])->name('job-post');
 //Route::post('post-details', [Login::class, 'addressinsert'])->name('post-details');
 // Route::get('/dashboard', [Login::class, 'dashboard'])->name('dashboard');
 
- Route::get('/dashboard', [Login::class,'pro'])->name('dashboard');
+Route::get('/dashboard', [Login::class,'pro'])->name('dashboard');
 
 Route::get('/companydashboard',[Login::class, 'profile_pic'])->name('companydashboard');
+
+
 
 Route::get('/resume', function () {
   return view('resume');
 })->name('resume');
 
+Route::get('/submittedjobs', function () {
+    return view('submittedjobs');
+})->name('submittedjobs');
+
+Route::get('/submittedjobs',[Login::class, 'showCV'])->name('submittedjobs');
 
 Route::get('/forget', function () {
   return view('forget');
@@ -157,24 +225,31 @@ Route::get('/view/{id}',[Login::class,'view']);
 
 Route::get('/deletepost/{busmail}/{job_Title}',[Login::class,'deltepost'])->name('deletepost');
 
-// Route::post("comlogin",[UserAuth::class, 'comlog']);
+Route::get('/unfollow/{mail}/{user}',[Login::class,'unfollow'])->name('unfollow');
+
+Route::post('/following',[Login::class,'insertFollow'])->name('following');
 
 
+Route::middleware(['preventBack'])->group(function(){
+  return view('welcome');
+});
 
-// // Route for the "Forgot Password" page
-// Route::get('/forgot-password', function () {
-//     return view('forgot-password');
-// })->name('forgot-password');
+Route::get('/logout',[Login::class,'logout'])->name('logout');
 
-// // Route for handling the "Forgot Password" form submission
-// Route::post('/forgot-password', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')
-//     ->name('password.email');
+Route::get('/email/verify', function () {
+  return view('verifiemail');
+})->middleware('auth')->name('verification.notice');
 
-// // Route for the "Password Reset" page
-// Route::get('/reset-password/{token}', function ($token) {
-//     return view('reset-password', ['token' => $token]);
-// })->name('password.reset');
 
-// // Route for handling the "Password Reset" form submission
-// Route::post('/reset-password', 'App\Http\Controllers\Auth\ResetPasswordController@reset')
-//     ->name('password.update');
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+  $request->fulfill();
+
+  return redirect('/welcome');
+})->middleware(['auth', 'signed'])->name('verification.verify');
